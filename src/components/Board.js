@@ -27,7 +27,9 @@ var Board = React.createClass({
             {cardName:'Play the flute', cardDescription:'Tube it!',                   cardDeadline: '09/40/2016 12:00 AM'},
           ]
         }
-      ]
+      ],
+      headerNameIndex: 0,
+      headerName: "Kanban"
     })
   },
 
@@ -65,10 +67,15 @@ var Board = React.createClass({
     listArray[toList].cards.splice(toCard,0,draggedCard[0]);//Inserting card into dropped position; we need to access first element of the splice object which is our card object
     this.setState({lists: listArray});
   },
+  changeHeader: function(){
+    var headerNameArray = ["Kanban!","Are","You","Ready","to"]
+    this.setState({headerName: headerNameArray[(this.state.headerNameIndex+1)%5], headerNameIndex: this.state.headerNameIndex+1})
+  },
 
   render: function(){
     return(
       <div className = "board">
+        <div id ="header" onMouseEnter={this.changeHeader} onMouseExit={this.changeHeader}>{this.state.headerName}</div>
         {this.state.lists.map(this.eachList)}
         <button id="newListButton" onClick={this.newList}>New List</button>
       </div>
