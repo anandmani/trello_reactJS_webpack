@@ -2,10 +2,10 @@
 *{
 	font-family: cursive;
 }
-body{
+html,body{
 	background-color: black;
-
 }
+
 button {
     display: block;
     margin: 0 auto;
@@ -28,13 +28,33 @@ button:hover{
 }
 #container{
 	background-color: black;
+	height: 95%;
+
+}
+#header{
+	text-align: center;
+	color: #ff6666;
+	height: 50px;
+	margin-bottom: 10px;
+	font-size: 30px;
+	border-top: solid 1px #ff6666;
+	border-bottom: solid 1px #ff6666;
+}
+#footer{
+	position: relative;
+	bottom:0;
+	width: 100%
+	text-align: center;
+	color: #ff6666;
+	height: 30px;
+	font-size: 20px;
+	border-top: solid 1px #ff6666;
 }
 #newListButton{
 	display: inline-block;
 	margin-left: 10px;
-	vertical-align: top;
-  white-space: nowrap;
 
+  white-space: nowrap;
 }
 .board{
 	width:100%;
@@ -88,7 +108,7 @@ button:hover{
 }
 .buttonRemoveList{
 	float: left;
-	position:fixed;
+
 }
 
 
