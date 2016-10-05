@@ -75,6 +75,7 @@ button:hover{
 	white-space: nowrap;
 	background-color: #ff6666;
 	display: inline-block;
+	position: relative;
 	white-space: nowrap;
 	width: 300px;
 	margin-left: 10px;
@@ -120,7 +121,8 @@ button:hover{
 }
 .buttonRemoveList{
 	float: left;
-	position: relative;
+	position: absolute;
+	top: 0;
 
 }
 
