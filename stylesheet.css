@@ -164,6 +164,16 @@ button:hover{
 .cardDescSave{
 	float:right;
 }
+.buttonColourPicker{
+	position: relative;
+	display: block;
+	top:10px;
+	clear: both;
+}
+.colourPicker{
+	position: relative;
+	display: block;
+}
 .closeModal{
 	margin-top:100px;
 	clear:both;
@@ -186,7 +196,7 @@ h1, h3 {
     margin: -70px 0 0 -120px;
 		color:#47b28e;
     border: 1px solid #ccc;
-    background-color: #c1ffea;
+		background-color:#c1ffea;
 }
 
 

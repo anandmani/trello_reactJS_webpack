@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { CirclePicker } from 'react-color';
 
 var Datetime = require('react-datetime');
 var moment = require('moment');
@@ -8,7 +9,7 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var Modal = React.createClass({
 
   getInitialState: function(){
-    return {};
+    return {isTagging: "none", tag: "#F44336"};
   },
 
   saveDescription: function(){
@@ -27,6 +28,19 @@ var Modal = React.createClass({
     this.props.saveModal(modal_obj);  //This is useless
   },
 
+  pickColour : function(){ //Flipping value of isTagging
+    this.setState({isTagging: (this.state.isTagging=="inline-block")?"none":"inline-block"})
+  },
+
+  handleChange: function(color){
+    console.log("onChange "+color.hex);
+    this.setState({tag: color.hex})
+  },
+
+  handleChangeComplete: function(color){
+    console.log("onChangeComplete "+color.hex);
+  },
+
     render: function() {
         if(this.props.isOpen){
           console.log("Rendering modal");
@@ -39,6 +53,10 @@ var Modal = React.createClass({
                   <p>Members</p>
                   <textArea placeholder = "Enter description" ref= "modalDescription" className="cardDescTextBox" defaultValue={this.props.cardDetails.cardDescription}></textArea>
                   <button onClick = {this.saveDescription} className="cardDescSave">Save</button>
+                  <button className = "buttonColourPicker" onClick= {this.pickColour}>Tag</button>
+                  <div className="colourPicker" style={{display:this.state.isTagging}}>
+                    <CirclePicker  onChange={ this.handleChange } color={ this.state.tag } onChangeComplete={ this.handleChangeComplete } />
+                  </div>
                   {this.props.children}
                 </div>
               </ReactCSSTransitionGroup>
