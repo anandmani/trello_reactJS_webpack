@@ -127,7 +127,7 @@ button:hover{
 	display: block;
 	cursor: pointer;
 	line-height: 30px;
-	color: grey;
+	color: #696969;
 }
 
 .hasDesc{
