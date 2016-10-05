@@ -14,7 +14,7 @@ var Board = React.createClass({
         {//list-1
           listName:"Monday",
           cards: [
-            {cardName:'Hit the Gym',    cardDescription:'Chest workout',                                      cardDeadline: '09/25/2016 12:00 AM'},  //list-1 card-1
+            {cardName:'Go to the Gym',    cardDescription:'Chest workout',                                      cardDeadline: '09/25/2016 12:00 AM'},  //list-1 card-1
             {cardName:'Take Medicine',  cardDescription:'1 Keraglo after breakfast,\n 1 D-Rise after lunch',  cardDeadline: '09/26/2016 12:00 AM'},
             {cardName:'Read the news',  cardDescription:'Skip all the kachada news',                          cardDeadline: '09/40/2016 12:00 AM'},
           ]

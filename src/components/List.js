@@ -71,8 +71,8 @@ var List = React.createClass({
           <div className ="list">
             <button className="buttonRemoveList" onClick={this.removeList}>X</button>
             <h3 className="listName" onClick={this.edit}>{this.props.list.listName}</h3>
-            <button onClick={this.newCard} >New Card</button>
             <div>{this.props.list.cards.map(this.eachCard)}</div>
+            <button  className="newCardButton" onClick={this.newCard} >New Card</button>
           </div>
         );
       }
@@ -81,8 +81,8 @@ var List = React.createClass({
           <div className ="list" onClick={this.edit}>
             <button className="buttonRemoveList" onClick={this.removeList}>X</button>
             <textarea ref="listNameInput" placeholder ={this.props.list.listName} autoFocus = {focus} onKeyDown={this.checkEnter} onClick={this.stopPropagation}></textarea>
-            <button onClick={this.newCard} >New Card</button>
             <div>{this.props.list.cards.map(this.eachCard)}</div>
+            <button className="newCardButton" onClick={this.newCard} >New Card</button>
           </div>
         );
       }
