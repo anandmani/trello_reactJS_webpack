@@ -5,6 +5,7 @@
 html,body{
 	background-color: black;
 
+
 }
 
 button {
@@ -92,6 +93,7 @@ button:hover{
 	margin-bottom: 10px;
 }
 .card{
+	position: relative;
 	cursor: pointer;
 	text-align: center;
 	background-color: #ff9999;
@@ -111,13 +113,40 @@ button:hover{
 	cursor: text;
 	display: inline-block;
 	font-family: cursive;
+	margin-bottom: 0;
 }
 .cardName:hover{
 	color: white;
 }
+
+.cardTiles{
+	margin:0;
+	padding:0;
+	height: 30px;
+	cursor: text;
+	display: block;
+	cursor: pointer;
+	line-height: 30px;
+	color: grey;
+}
+
+.hasDesc{
+	cursor: pointer;
+	font-size: 30px;
+	padding-left: 10px;
+}
+
+.hasDead{
+	cursor: pointer;
+	font-size: 20px;
+	padding-left: 10px;
+}
+
 .buttonRemoveCard{
 	float: left;
-	height: 100%;
+	position: absolute;
+	top: 0;
+
 }
 .buttonRemoveList{
 	float: left;

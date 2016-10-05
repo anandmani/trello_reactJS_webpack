@@ -152,6 +152,8 @@ var Card = React.createClass({
       var connectDropTarget = this.props.connectDropTarget;
       var isOver = this.props.isOver;
       var val = "grey" && true;
+      var hasDesc = (this.props.cardDetails.cardDescription.trim()=="")?"none":"inline-block";
+      var hasDead = (this.props.cardDetails.cardDeadline.trim()=="")?"none":"inline-block";
       // var index = parseInt(this.props.ind);
       // var odd = parseInt(this.props.ind)%2; //index mod 2 = 1 (true) for all odd cards.
 
@@ -168,6 +170,10 @@ var Card = React.createClass({
               className="card" onClick={this.openModal} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
 
                 <p  className ="cardName" onClick={this.edit} >{this.props.children}</p>
+                <p className ="cardTiles">
+                <span className = "hasDesc" style={{display:hasDesc}}>     ✍     </span>
+                <span className = "hasDead" style={{display:hasDead}}>     🕒     </span>
+                </p>
                 <Modal isOpen={this.state.isModalOpen} transitionName="modal-anim" cardDetails={this.props.cardDetails} saveModal={this.saveCardModal}>
                     <button onClick={this.closeModal} className="closeModal">Close modal</button>
                 </Modal>
@@ -187,6 +193,10 @@ var Card = React.createClass({
             className="card" onClick={this.openModal} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
 
               <p  className ="cardName" onClick={this.edit} >{this.props.children}</p>
+              <p  className ="cardTiles">
+              <span className = "hasDesc" style={{display:hasDesc}}>     ✍     </span>
+              <span className = "hasDead" style={{display:hasDead}}>     🕒     </span>
+              </p>
               <Modal isOpen={this.state.isModalOpen} transitionName="modal-anim" cardDetails={this.props.cardDetails} saveModal={this.saveCardModal}>
                   <button onClick={this.closeModal} className="closeModal">Close modal</button>
               </Modal>

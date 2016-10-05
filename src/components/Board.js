@@ -49,7 +49,7 @@ var Board = React.createClass({
     listArray.push({
       listName:"New List",
       cards:[
-          {cardName:'Default Card',    cardDescription:'Enter Description',   cardDeadline:date},
+          {cardName:'Default Card',    cardDescription:'',   cardDeadline:date},
       ]
     });
     this.setState({listName: listArray})
