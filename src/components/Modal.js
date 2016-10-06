@@ -1,15 +1,16 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { CirclePicker } from 'react-color';
+import { render } from 'react-dom';   //import and export are ES6. Converted by Babel
+import { GithubPicker  } from 'react-color';
+import  ColourPicker from './ColourPicker'; //If the component is export default we dont have to put { } around it
 
-var Datetime = require('react-datetime');
+var Datetime = require('react-datetime');  //require and module.export is commonJS
 var moment = require('moment');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var Modal = React.createClass({
 
   getInitialState: function(){
-    return {isTagging: "none", tag: "#F44336"};
+    return {};
   },
 
   saveDescription: function(){
@@ -28,17 +29,10 @@ var Modal = React.createClass({
     this.props.saveModal(modal_obj);  //This is useless
   },
 
-  pickColour : function(){ //Flipping value of isTagging
-    this.setState({isTagging: (this.state.isTagging=="inline-block")?"none":"inline-block"})
-  },
-
-  handleChange: function(color){
-    console.log("onChange "+color.hex);
-    this.setState({tag: color.hex})
-  },
-
-  handleChangeComplete: function(color){
-    console.log("onChangeComplete "+color.hex);
+  saveTags: function(tagArray){
+    var modal_obj = this.props.cardDetails;
+    modal_obj.cardTags = tagArray;
+    this.props.saveModal(modal_obj);
   },
 
     render: function() {
@@ -53,10 +47,7 @@ var Modal = React.createClass({
                   <p>Members</p>
                   <textArea placeholder = "Enter description" ref= "modalDescription" className="cardDescTextBox" defaultValue={this.props.cardDetails.cardDescription}></textArea>
                   <button onClick = {this.saveDescription} className="cardDescSave">Save</button>
-                  <button className = "buttonColourPicker" onClick= {this.pickColour}>Tag</button>
-                  <div className="colourPicker" style={{display:this.state.isTagging}}>
-                    <CirclePicker  onChange={ this.handleChange } color={ this.state.tag } onChangeComplete={ this.handleChangeComplete } />
-                  </div>
+                  <ColourPicker tagArray={this.props.cardDetails.cardTags} saveTags={this.saveTags}/>
                   {this.props.children}
                 </div>
               </ReactCSSTransitionGroup>

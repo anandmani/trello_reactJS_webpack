@@ -14,17 +14,17 @@ var Board = React.createClass({
         {//list-1
           listName:"Monday",
           cards: [
-            {cardName:'Go to the Gym',    cardDescription:'Chest workout',                                      cardDeadline: '09/25/2016 12:00 AM'},  //list-1 card-1
-            {cardName:'Take Medicine',  cardDescription:'1 Keraglo after breakfast,\n 1 D-Rise after lunch',  cardDeadline: '09/26/2016 12:00 AM'},
-            {cardName:'Read the news',  cardDescription:'Skip all the kachada news',                          cardDeadline: '09/40/2016 12:00 AM'},
+            {cardName:'Go to the Gym',    cardDescription:'Chest workout',                                      cardDeadline: '09/25/2016 12:00 AM',  cardTags:["#004dcf"]},  //list-1 card-1
+            {cardName:'Take Medicine',    cardDescription:'1 Keraglo after breakfast,\n 1 D-Rise after lunch',  cardDeadline: '09/26/2016 12:00 AM',  cardTags:[]},
+            {cardName:'Read the news',    cardDescription:'Skip all the kachada news',                          cardDeadline: '09/40/2016 12:00 AM',  cardTags:["#004dcf"]},
           ]
         },
         {//list-2
           listName:"Tuesday",
           cards: [
-            {cardName:'Hit the Gym',    cardDescription:'Shoulder workout',           cardDeadline: '09/25/2016 12:00 AM'},  //list-2 card-1
-            {cardName:'Take Medicine',  cardDescription:'1 Keraglo after breakfast',  cardDeadline: '09/26/2016 12:00 AM'},
-            {cardName:'Play the flute', cardDescription:'Tube it!',                   cardDeadline: '09/40/2016 12:00 AM'},
+            {cardName:'Hit the Gym',    cardDescription:'Shoulder workout',           cardDeadline: '09/25/2016 12:00 AM',  cardTags:["#004dcf"]},  //list-2 card-1
+            {cardName:'Take Medicine',  cardDescription:'1 Keraglo after breakfast',  cardDeadline: '09/26/2016 12:00 AM',  cardTags:["#5300eb","#004dcf"]},
+            {cardName:'Play the flute', cardDescription:'Tube it!',                   cardDeadline: '09/40/2016 12:00 AM',  cardTags:[]},
           ]
         }
       ],
@@ -49,7 +49,7 @@ var Board = React.createClass({
     listArray.push({
       listName:"New List",
       cards:[
-          {cardName:'Default Card',    cardDescription:'',   cardDeadline:date},
+          {cardName:'Default Card',    cardDescription:'',   cardDeadline:date, cardTags:[]},
       ]
     });
     this.setState({listName: listArray})

@@ -33,7 +33,7 @@ var List = React.createClass({
     newCard: function(){
         var listObj = this.props.list;
         var date = moment(new Date()).format('MM/DD/YYYY hh:mm A z'); //Getting current date-time
-        listObj.cards.push({cardName: "Default card", cardDescription: "", cardDeadline: date});
+        listObj.cards.push({cardName: "Default card", cardDescription: "", cardDeadline: date,  cardTags:[]});
         this.props.saveList(listObj,this.props.listIndex);
     },
 

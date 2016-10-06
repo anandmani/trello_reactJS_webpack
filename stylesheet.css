@@ -164,21 +164,32 @@ button:hover{
 .cardDescSave{
 	float:right;
 }
-.buttonColourPicker{
-	position: relative;
-	display: block;
-	top:10px;
-	clear: both;
-}
-.colourPicker{
-	position: relative;
-	display: block;
-}
+
+
 .closeModal{
 	margin-top:100px;
 	clear:both;
 }
 
+
+.tags{
+	clear: both;
+	display: block;
+}
+.tag{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+}
+
+}
+.buttonAddTag{
+	display: inline-block;
+}
+.colourPicker{
+	clear: both;
+	display: block;
+}
 
 h1, h3 {
     text-align: center;
