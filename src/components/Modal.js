@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';   //import and export are ES6. Converted by Babel
 import { GithubPicker  } from 'react-color';
 import  ColourPicker from './ColourPicker'; //If the component is export default we dont have to put { } around it
+import Members from './Members';
 
 var Datetime = require('react-datetime');  //require and module.export is commonJS
 var moment = require('moment');
@@ -35,6 +36,13 @@ var Modal = React.createClass({
     this.props.saveModal(modal_obj);
   },
 
+  saveMembers: function(memberArray){
+    console.log("in modal, array"+memberArray);
+    var modal_obj = this.props.cardDetails;
+    modal_obj.cardMembers = memberArray;
+    this.props.saveModal(modal_obj);
+  },
+
     render: function() {
         if(this.props.isOpen){
           console.log("Rendering modal");
@@ -43,8 +51,7 @@ var Modal = React.createClass({
                 <div className="modal">
                   <h3>{this.props.cardDetails.cardName}</h3>
                   <Datetime defaultValue={this.props.cardDetails.cardDeadline} onChange={this.saveDeadline}/>
-                  <p>Owner</p>
-                  <p>Members</p>
+                  <Members  memberArray={this.props.cardDetails.cardMembers} saveMembers={this.saveMembers}/>
                   <textArea placeholder = "Enter description" ref= "modalDescription" className="cardDescTextBox" defaultValue={this.props.cardDetails.cardDescription}></textArea>
                   <button onClick = {this.saveDescription} className="cardDescSave">Save</button>
                   <ColourPicker tagArray={this.props.cardDetails.cardTags} saveTags={this.saveTags}/>

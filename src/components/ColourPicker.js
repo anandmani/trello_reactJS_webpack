@@ -36,10 +36,17 @@ var ColourPicker = React.createClass({
       console.log("Array of tags: "+this.state.tagArray);
     },
 
+    removeTag: function(tag){
+        console.log("inside remove tag"+tag);
+        var array = this.props.tagArray;
+        array.splice(this.props.tagArray.indexOf(tag),1);
+        this.props.saveTags(array);
+    },
+
     eachTag: function(color, index){
       console.log("Color inside each tag"+ color);
       return(
-        <div key={index} className = "tag" style ={{ backgroundColor: color}} />
+        <div key={index} className = "tag" style ={{ backgroundColor: color}} onClick= {this.removeTag.bind(null,color)} />
       );
     },
 
