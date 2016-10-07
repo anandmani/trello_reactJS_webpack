@@ -48,15 +48,34 @@ var Modal = React.createClass({
           console.log("Rendering modal");
             return (
               <ReactCSSTransitionGroup transitionName={this.props.transitionName}>
-                <div className="modal">
-                  <h3>{this.props.cardDetails.cardName}</h3>
-                  <Datetime defaultValue={this.props.cardDetails.cardDeadline} onChange={this.saveDeadline}/>
-                  <Members  memberArray={this.props.cardDetails.cardMembers} saveMembers={this.saveMembers}/>
-                  <textArea placeholder = "Enter description" ref= "modalDescription" className="cardDescTextBox" defaultValue={this.props.cardDetails.cardDescription}></textArea>
-                  <button onClick = {this.saveDescription} className="cardDescSave">Save</button>
-                  <ColourPicker tagArray={this.props.cardDetails.cardTags} saveTags={this.saveTags}/>
-                  {this.props.children}
-                </div>
+                  <div className="modal">
+                      <div className="modalContent">
+
+                          <h3>{this.props.cardDetails.cardName}</h3>
+
+                          <div  className="modalSegment">
+                              <p className="modalKey">Deadline </p>
+                              <div className="modalValue">
+                                  <Datetime defaultValue={this.props.cardDetails.cardDeadline} onChange={this.saveDeadline}/>
+                              </div>
+                          </div>
+
+                            <Members  memberArray={this.props.cardDetails.cardMembers} saveMembers={this.saveMembers}/>
+
+                          <div   className="modalSegment">
+                              <p className="modalKey">Description</p>
+                              <div  className="modalValue">
+                                  <textArea placeholder = "Enter description" ref= "modalDescription" className="cardDescTextBox" defaultValue={this.props.cardDetails.cardDescription}></textArea>
+                                  <button onClick = {this.saveDescription} className="cardDescSave">Save</button>
+                              </div>
+                          </div>
+
+                          <ColourPicker tagArray={this.props.cardDetails.cardTags} saveTags={this.saveTags}/>
+
+                          {this.props.children}
+
+                      </div>
+                  </div>
               </ReactCSSTransitionGroup>
             );
 

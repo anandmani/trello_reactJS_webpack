@@ -103,18 +103,20 @@ class Members extends Component {
     };
     // Finally, render it!
     return (
-      <div>
-      <h3>Members</h3>
-      {this.props.memberArray.map(this.eachMember)}
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={this.getSuggestionValue}
-        renderSuggestion={this.renderSuggestion}
-        onSuggestionSelected ={this.onSuggestionSelected}
-        inputProps={inputProps}
-      />
+      <div  className="modalSegment">
+          <p className ="modalKey">Members</p>
+          <div className = "modalValue">
+              {this.props.memberArray.map(this.eachMember)}
+              <Autosuggest
+                suggestions={suggestions}
+                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                getSuggestionValue={this.getSuggestionValue}
+                renderSuggestion={this.renderSuggestion}
+                onSuggestionSelected ={this.onSuggestionSelected}
+                inputProps={inputProps}
+              />
+          </div>
       </div>
     );
   }

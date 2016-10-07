@@ -52,15 +52,15 @@ var ColourPicker = React.createClass({
 
   render: function(){
     return(
-      <div className = "tags">
-        <h3>Tags</h3>
-        <div>
-          {this.props.tagArray.map(this.eachTag)}
-        </div>
-        <button className = "buttonAddTag"  onClick= {this.pickColour}>+</button>
-        <div className="colourPicker" style={{display:this.state.isTagging}}>
-          <GithubPicker onChangeComplete={ this.handleChangeComplete } />
-        </div>
+      <div className = "tags modalSegment">
+          <p className="modalKey">Tags</p>
+          <div className="modalValue">
+              {this.props.tagArray.map(this.eachTag)}
+              <button className = "buttonAddTag"  onClick= {this.pickColour}>+</button>
+              <div className="colourPicker" style={{display:this.state.isTagging}}>
+                  <GithubPicker onChangeComplete={ this.handleChangeComplete } />
+              </div>
+          </div>
       </div>
     );
   }
