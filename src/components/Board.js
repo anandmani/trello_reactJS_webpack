@@ -75,10 +75,12 @@ var Board = React.createClass({
 
   render: function(){
     return(
-      <div className = "board">
+      <div>
         <div id ="header" onMouseEnter={this.changeHeader}>{this.state.headerName}</div>
-        {this.state.lists.map(this.eachList)}
-        <button id="newListButton" onClick={this.newList}>New List</button>
+        <div className = "board">
+          {this.state.lists.map(this.eachList)}
+          <Button id="newListButton" onClick={this.newList} bsStyle="primary">New List</Button>
+        </div>
       </div>
     )
   }

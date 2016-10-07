@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Modal from "./Modal";
+import {Button} from 'react-bootstrap'
 var PropTypes = React.PropTypes;
 var DragSource = require('react-dnd').DragSource;
 var DropTarget = require('react-dnd').DropTarget;
@@ -177,7 +178,7 @@ var Card = React.createClass({
                 <Modal isOpen={this.state.isModalOpen} transitionName="modal-anim" cardDetails={this.props.cardDetails} saveModal={this.saveCardModal}>
                     <button onClick={this.closeModal} className="closeModal">Close modal</button>
                 </Modal>
-                <button className="buttonRemoveCard" onClick={this.remove}>X</button>
+                <Button  bsStyle="warning" className="buttonRemoveCard" onClick={this.remove}>X</Button>
 
           </div>
       ));
@@ -200,7 +201,7 @@ var Card = React.createClass({
               <Modal isOpen={this.state.isModalOpen} transitionName="modal-anim" cardDetails={this.props.cardDetails} saveModal={this.saveCardModal}>
                   <button onClick={this.closeModal} className="closeModal">Close modal</button>
               </Modal>
-              <button className="buttonRemoveCard" onClick={this.remove}>X</button>
+              <Button bsStyle="warning" className="buttonRemoveCard" onClick={this.remove}>X</Button>
 
         </div>
       );
@@ -211,8 +212,8 @@ var Card = React.createClass({
     renderEditing: function(){ //When we are editing Card Name
         console.log("render editing");
         return(<div className="card"  onClick={this.edit}>
-                    <textarea ref="textInput" placeholder ={this.props.children} autoFocus = {focus} onClick={this.stopPropText} onKeyDown={this.checkEnter} ></textarea>
-                    <button id="button3" ref="cardNameSave" onClick={this.saveCardName}>Save</button>
+                    <textarea ref="textInput" className="cardNameInput" placeholder ={this.props.children} autoFocus = {focus} onClick={this.stopPropText} onKeyDown={this.checkEnter} ></textarea>
+                    <Button bsStyle="success" className="buttonSaveCardName" ref="cardNameSave" onClick={this.saveCardName}>Save</Button>
                </div>);
     },
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import { Button } from 'react-bootstrap';
 
 import Card from "./Card";
 var moment = require('moment');
@@ -69,20 +70,20 @@ var List = React.createClass({
     if(!this.state.edit){
         return(
           <div className ="list">
-            <button className="buttonRemoveList" onClick={this.removeList}>X</button>
+            <Button bsStyle="danger" className="buttonRemoveList" onClick={this.removeList}>X</Button>
             <h3 className="listName" onClick={this.edit}>{this.props.list.listName}</h3>
             <div>{this.props.list.cards.map(this.eachCard)}</div>
-            <button  className="newCardButton" onClick={this.newCard} >New Card</button>
+            <Button bsStyle="success" className="newCardButton" onClick={this.newCard} >New Card</Button>
           </div>
         );
       }
       else{
         return(
           <div className ="list" onClick={this.edit}>
-            <button className="buttonRemoveList" onClick={this.removeList}>X</button>
-            <textarea ref="listNameInput" placeholder ={this.props.list.listName} autoFocus = {focus} onKeyDown={this.checkEnter} onClick={this.stopPropagation}></textarea>
+            <Button bsStyle="danger" className="buttonRemoveList" onClick={this.removeList}>X</Button>
+            <textarea ref="listNameInput" className="listNameInput" placeholder ={this.props.list.listName} autoFocus = {focus} onKeyDown={this.checkEnter} onClick={this.stopPropagation}></textarea>
             <div>{this.props.list.cards.map(this.eachCard)}</div>
-            <button className="newCardButton" onClick={this.newCard} >New Card</button>
+            <Button bsStyle="success" className="newCardButton" onClick={this.newCard} >New Card</Button>
           </div>
         );
       }
