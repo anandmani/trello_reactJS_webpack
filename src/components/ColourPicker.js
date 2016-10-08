@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { GithubPicker  } from 'react-color';
+import { Button } from 'react-bootstrap';
 
 var ColourPicker = React.createClass({
 
@@ -52,14 +53,15 @@ var ColourPicker = React.createClass({
 
   render: function(){
     return(
-      <div className = "tags modalSegment">
-          <p className="modalKey">Tags</p>
-          <div className="modalValue">
-              {this.props.tagArray.map(this.eachTag)}
+      <div className = "tags modalSegment row">
+          <p className="modalKey col-xs-2">Tags</p>
+          <div className="modalValue col-xs-8">
               <button className = "buttonAddTag"  onClick= {this.pickColour}>+</button>
+              {this.props.tagArray.map(this.eachTag)}
               <div className="colourPicker" style={{display:this.state.isTagging}}>
                   <GithubPicker onChangeComplete={ this.handleChangeComplete } />
               </div>
+
           </div>
       </div>
     );

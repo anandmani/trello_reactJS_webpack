@@ -3,6 +3,7 @@ import { render } from 'react-dom';   //import and export are ES6. Converted by 
 import { GithubPicker  } from 'react-color';
 import  ColourPicker from './ColourPicker'; //If the component is export default we dont have to put { } around it
 import Members from './Members';
+import { Button } from 'react-bootstrap';
 
 var Datetime = require('react-datetime');  //require and module.export is commonJS
 var moment = require('moment');
@@ -49,24 +50,24 @@ var Modal = React.createClass({
             return (
               <ReactCSSTransitionGroup transitionName={this.props.transitionName}>
                   <div className="modal">
-                      <div className="modalContent">
+                      <div className="modalContent container">
 
                           <h3>{this.props.cardDetails.cardName}</h3>
 
-                          <div  className="modalSegment">
-                              <p className="modalKey">Deadline </p>
-                              <div className="modalValue">
+                          <div  className="modalSegment row">
+                              <p className="modalKey col-xs-2">Deadline </p>
+                              <div className="modalValue col-xs-8">
                                   <Datetime defaultValue={this.props.cardDetails.cardDeadline} onChange={this.saveDeadline}/>
                               </div>
                           </div>
 
                             <Members  memberArray={this.props.cardDetails.cardMembers} saveMembers={this.saveMembers}/>
 
-                          <div   className="modalSegment">
-                              <p className="modalKey">Description</p>
-                              <div  className="modalValue">
+                          <div   className="modalSegment row">
+                              <p className="modalKey col-xs-2">Description</p>
+                              <div  className="modalValue col-xs-8">
                                   <textArea placeholder = "Enter description" ref= "modalDescription" className="cardDescTextBox" defaultValue={this.props.cardDetails.cardDescription}></textArea>
-                                  <button onClick = {this.saveDescription} className="cardDescSave">Save</button>
+                                  <Button bsStyle="success" onClick = {this.saveDescription} className="cardDescSave">Save</Button>
                               </div>
                           </div>
 

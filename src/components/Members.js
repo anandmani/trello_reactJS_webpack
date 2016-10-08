@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import { render } from 'react-dom';
 import Autosuggest from 'react-autosuggest';
 import allMembers from '../constants/MembersDB';   //Using this as a DB call to get all members
-
+import { Button } from 'react-bootstrap';
 //  autosuggest pool
 
 
@@ -79,7 +79,7 @@ class Members extends Component {
   };
 
   eachMember = (memberObj, index) => {
-  return (<div key={index} className="member"><img src={memberObj.dp.src} height="30" width="30"/>{memberObj.name}<button className="buttonRemoveMember" onClick={()=>(this.removeMember(memberObj))}>X</button></div>) ;
+  return (<div key={index} className="member"><img src={memberObj.dp.src} height="30" width="30"/>{memberObj.name}<Button bsStyle="danger" className="buttonRemoveMember" onClick={()=>(this.removeMember(memberObj))}>X</Button></div>) ;
   };
 
   onSuggestionSelected = (event, obj) =>{
@@ -103,9 +103,9 @@ class Members extends Component {
     };
     // Finally, render it!
     return (
-      <div  className="modalSegment">
-          <p className ="modalKey">Members</p>
-          <div className = "modalValue">
+      <div  className="modalSegment row">
+          <p className ="modalKey col-xs-2">Members</p>
+          <div className = "modalValue col-xs-8">
               {this.props.memberArray.map(this.eachMember)}
               <Autosuggest
                 suggestions={suggestions}

@@ -10,7 +10,7 @@ body{
 }
 
 button {
-    display: block;
+	display: block;
     margin: 0 auto;
     padding: 6px 12px;
 
@@ -88,6 +88,7 @@ button:hover{
 	margin-left: 10px;
 	max-height: 95%;
 	overflow: auto;
+	box-shadow: 2px 2px 5px grey;
 }
 .listName{
 	align-self: center;
@@ -116,6 +117,7 @@ button:hover{
   border-radius: 4px;
 	overflow: hidden;
 	-webkit-user-select: none;
+	box-shadow: 2px 2px 5px grey;
 }
 .card:nth-child(odd){
 	text-align: center;
@@ -190,9 +192,15 @@ margin-top: 5px;
 
 .cardDescTextBox{
 	height: 60px;
-	width: 200px;
+	width: 100%;
 	float:left;
+	resize: none;
+	outline:none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 6px 12px;
 }
+
 .cardDescSave{
 	float:right;
 }
@@ -204,7 +212,7 @@ margin-top: 5px;
 }
 
 .member{
-	border: 1px solid black;
+	width: 100%;
 }
 
 .buttonRemoveMember{
@@ -216,7 +224,7 @@ margin-top: 5px;
 	display: block;
 }
 .tag{
-	display: inline-block;
+	float:left;
 	width: 35px;
 	height: 35px;
 }
@@ -224,14 +232,18 @@ margin-top: 5px;
 	opacity:0;
 }
 
-}
 .buttonAddTag{
+	float: left;
 	display: inline-block;
+	margin-right: 10px;
+	outline: none;
+	background-color: green;
+
 }
+
 .colourPicker{
 	clear: both;
-	display: block;
-}
+};
 
 h1, h3 {
     text-align: center;
@@ -250,7 +262,7 @@ h1, h3 {
 		height: 100%;
 		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 		overflow: auto;
-
+		cursor: default;
 }
 
 .modalContent {
@@ -262,16 +274,15 @@ h1, h3 {
 		height: 500px;
 		width: 500px;
 		margin:-250px 0 0 -250px;
-		padding: 20px;
+		/*padding: 20px;*/
 		background-color:#f2f3f4;
 		border: 1px solid transparent;
 		border-radius: 4px;
 		overflow: auto;
 }
 
-.modalSegment{
-	display: block;
-	margin: 20px;
+.row{
+	margin-top: 20px;
 }
 
 .modalKey{
@@ -282,6 +293,7 @@ h1, h3 {
 	display: inline-block;
 	margin-left: 20px;
 }
+
 /* Animation */
 
 .modal-anim-enter {
@@ -314,13 +326,13 @@ h1, h3 {
 }
 
 .react-autosuggest__input {
-  width: 240px;
+  width: 100%;
   height: 30px;
   padding: 10px 20px;
   font-family: Helvetica, sans-serif;
   font-weight: 300;
   font-size: 16px;
-  border: 1px solid #aaa;
+  border: 1px solid #ccc;
   border-radius: 4px;
 }
 
@@ -340,7 +352,7 @@ h1, h3 {
 .react-autosuggest__container--open .react-autosuggest__suggestions-container {
   display: block;
   position: absolute;
-  top: 51px;
+
   width: 280px;
   border: 1px solid #aaa;
   background-color: #fff;

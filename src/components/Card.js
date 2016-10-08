@@ -166,7 +166,8 @@ var Card = React.createClass({
           <div
               style={{
                 opacity: isDragging ? 0 : isOver? 0.5 : 1,
-                border: isDragging? "none" : isOver? "solid 1px black":"none",
+                border: isDragging? "none" : isOver? "solid 1px transparent":"none",
+                boxShadow: isDragging? "2px 2px 5px grey": isOver? "2px 2px 10px black" : "2px 2px 5px grey",
               }}
               className="card" onClick={this.openModal} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
 
@@ -199,7 +200,7 @@ var Card = React.createClass({
               <span className = "hasDead" style={{display:hasDead}}>     🕒     </span>
               </p>
               <Modal isOpen={this.state.isModalOpen} transitionName="modal-anim" cardDetails={this.props.cardDetails} saveModal={this.saveCardModal}>
-                  <button onClick={this.closeModal} className="closeModal">Close modal</button>
+                  <Button bsStyle="primary" onClick={this.closeModal} className="closeModal">Close modal</Button>
               </Modal>
               <Button bsStyle="warning" className="buttonRemoveCard" onClick={this.remove}>X</Button>
 
