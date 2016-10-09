@@ -2,6 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import Modal from "./Modal";
 import {Button} from 'react-bootstrap'
+import { Tooltip } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap';
+
 var PropTypes = React.PropTypes;
 var DragSource = require('react-dnd').DragSource;
 var DropTarget = require('react-dnd').DropTarget;
@@ -134,6 +137,19 @@ var Card = React.createClass({
       this.props.svCard( obj, this.props.ind);
     },
 
+    eachTag: function(color,index){
+        return(
+            <div key={index} className = "tagTile" style ={{ backgroundColor: color}} />
+        )
+    },
+    eachMember: function(memberObj, index){
+        var tooltip= <Tooltip id="tooltip">{memberObj.name}</Tooltip>;
+        return(
+          <OverlayTrigger placement="bottom" overlay={tooltip}>
+                <img key={index} className = "memberTile" src={memberObj.dp.src} height="30" width="30"/>
+          </OverlayTrigger>
+          )
+    },
     // componentDidMount: function(){
     //   var rect = this.refs.card.getBoundingClientRect();
     //   console.log("Initial Position: TRBL ",rect.top, rect.right, rect.bottom, rect.left);
@@ -172,10 +188,21 @@ var Card = React.createClass({
               className="card" onClick={this.openModal} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
 
                 <p  className ="cardName" onClick={this.edit} >{this.props.children}</p>
+                
                 <p className ="cardTiles">
-                <span className = "hasDesc" style={{display:hasDesc}}>     ✍     </span>
-                <span className = "hasDead" style={{display:hasDead}}>     🕒     </span>
+                    <span className = "hasDesc" style={{display:hasDesc}}>     ✍     </span>
+                    <span className = "hasDead" style={{display:hasDead}}>     🕒     </span>
                 </p>
+
+                <div className ="memberTiles">
+                    {this.props.cardDetails.cardMembers.map(this.eachMember)}
+                </div>
+
+                <div className ="tagTiles">
+                    {this.props.cardDetails.cardTags.map(this.eachTag)}
+                </div>
+
+
                 <Modal isOpen={this.state.isModalOpen} transitionName="modal-anim" cardDetails={this.props.cardDetails} saveModal={this.saveCardModal}>
                     <button onClick={this.closeModal} className="closeModal">Close modal</button>
                 </Modal>
@@ -199,6 +226,16 @@ var Card = React.createClass({
               <span className = "hasDesc" style={{display:hasDesc}}>     ✍     </span>
               <span className = "hasDead" style={{display:hasDead}}>     🕒     </span>
               </p>
+
+              <div className ="memberTiles">
+                  {this.props.cardDetails.cardMembers.map(this.eachMember)}
+              </div>
+
+              <div className ="tagTiles">
+                  {this.props.cardDetails.cardTags.map(this.eachTag)}
+              </div>
+
+
               <Modal isOpen={this.state.isModalOpen} transitionName="modal-anim" cardDetails={this.props.cardDetails} saveModal={this.saveCardModal}>
                   <Button bsStyle="primary" onClick={this.closeModal} className="closeModal">Close modal</Button>
               </Modal>

@@ -63,6 +63,8 @@ var Modal = React.createClass({
 
                             <Members  memberArray={this.props.cardDetails.cardMembers} saveMembers={this.saveMembers}/>
 
+                            <ColourPicker tagArray={this.props.cardDetails.cardTags} saveTags={this.saveTags}/>
+
                           <div   className="modalSegment row">
                               <p className="modalKey col-xs-2">Description</p>
                               <div  className="modalValue col-xs-8">
@@ -71,7 +73,7 @@ var Modal = React.createClass({
                               </div>
                           </div>
 
-                          <ColourPicker tagArray={this.props.cardDetails.cardTags} saveTags={this.saveTags}/>
+
 
                           {this.props.children}
 

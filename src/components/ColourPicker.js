@@ -2,7 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { GithubPicker  } from 'react-color';
 import { Button } from 'react-bootstrap';
-
+import { Tooltip } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap';
 var ColourPicker = React.createClass({
 
     getInitialState: function(){
@@ -25,9 +26,9 @@ var ColourPicker = React.createClass({
             array.push(color.hex);
             this.props.saveTags(array);
           }
-          else {
-            alert("Can set only 5 tags");
-          }
+          // else {
+          //   alert("Can set only 5 tags");
+          // }
         }
         else {  //If colour is already present, remove it
           var array = this.props.tagArray;
@@ -51,12 +52,17 @@ var ColourPicker = React.createClass({
       );
     },
 
+    tooltip: (<Tooltip id="tooltip">Maximum 5 tags allowed!</Tooltip>),
+
+
   render: function(){
     return(
       <div className = "tags modalSegment row">
           <p className="modalKey col-xs-2">Tags</p>
           <div className="modalValue col-xs-8">
-              <button className = "buttonAddTag"  onClick= {this.pickColour}>+</button>
+              <OverlayTrigger placement="bottom" overlay={this.tooltip}>
+                <Button bsStyle="success" className = "buttonAddTag"  onClick= {this.pickColour}>+</Button>
+              </OverlayTrigger>
               {this.props.tagArray.map(this.eachTag)}
               <div className="colourPicker" style={{display:this.state.isTagging}}>
                   <GithubPicker onChangeComplete={ this.handleChangeComplete } />

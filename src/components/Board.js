@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { Button } from 'react-bootstrap';
-
 import List from "./List";
 
 var moment = require('moment');

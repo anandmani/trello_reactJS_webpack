@@ -13,22 +13,13 @@ button {
 	display: block;
     margin: 0 auto;
     padding: 6px 12px;
-
 		border: 1px solid #ccc;
     border-radius: 4px;
-    background: grey;
-
     color: white;
-    font-weight: bold;
-
     font-size: 14px;
     line-height: 20px;
 }
 
-button:hover{
-	background: grey;
-	color: black;
-}
 #container{
 	height: 100%;
 	max-height: 100%;
@@ -99,7 +90,8 @@ button:hover{
 	height: 26px;
 	border: none;
 	text-align: center;
-	vertical-align: middle
+	vertical-align: middle;
+	margin-top: 10px;
 }
 .listName:hover{
 	color: grey;
@@ -164,6 +156,11 @@ margin-top: 5px;
 	color: #696969;
 }
 
+.memberTile{
+	border: 1px solid transparent;
+	border-radius: 50%;
+	margin: 2px;
+}
 .hasDesc{
 	cursor: pointer;
 	font-size: 30px;
@@ -207,16 +204,37 @@ margin-top: 5px;
 
 
 .closeModal{
-	margin-top:100px;
-	clear:both;
+	bottom: 0;
+	margin: 10px 0 10px 0;
 }
 
 .member{
 	width: 100%;
+	border: 1px solid #ccc;
+	background-color: white;
+	border-radius: 4px;
+	margin: 2px;
+}
+.memberDp{
+	border-radius: 4px 0 0 4px;
+	float: left;
+}
+.memberName{
+	display: inline-block;
+	height: 100%;
+	line-height: 20px;
+	margin: 5px 0 5px 0;;
 }
 
 .buttonRemoveMember{
+	float:right;
 	display: inline-block;
+	width: 30px;
+	height: 30px;
+	padding: 4px 10px;
+	border: none;
+	border-radius: 0 4px 4px 0;
+	background-color: transparent;
 }
 
 .tags{
@@ -227,23 +245,41 @@ margin-top: 5px;
 	float:left;
 	width: 35px;
 	height: 35px;
+	border: 1px solid white;
+	border-radius: 4px;
 }
 .tag:hover{
-	opacity:0;
+	opacity:0.2;
+	cursor: not-allowed;
 }
-
+.tagTiles{
+	width:auto;
+background-color: #ccc;
+}
+.tagTile{
+	width: 45px;
+	height: 8px;
+	display: inline-block;
+	border-radius: 4px;
+	margin-right: 2px;
+}
 .buttonAddTag{
 	float: left;
 	display: inline-block;
 	margin-right: 10px;
 	outline: none;
-	background-color: green;
+	background-color: #5cb85c;
 
 }
 
 .colourPicker{
 	clear: both;
+	position: absolute;
+	top: 35px;
+	width: 100%;
+	z-index: 9999;
 };
+
 
 h1, h3 {
     text-align: center;
@@ -251,7 +287,6 @@ h1, h3 {
 }
 
 .modal {
-	  text-align: center;
 		font-family: cursive;
 		display: inline-block;
     position: fixed;
@@ -268,7 +303,6 @@ h1, h3 {
 .modalContent {
 		display: inline-block;
 		position: fixed;
-		text-align: left;
 		top: 50%;
 		left: 50%;
 		height: 500px;
@@ -287,6 +321,7 @@ h1, h3 {
 
 .modalKey{
 	display: inline-block;
+	text-align: left;
 }
 
 .modalValue{
@@ -327,11 +362,9 @@ h1, h3 {
 
 .react-autosuggest__input {
   width: 100%;
-  height: 30px;
-  padding: 10px 20px;
-  font-family: Helvetica, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
+  height: 34px;
+  padding: 6px 12px;
+  font-family: cursive;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -356,9 +389,7 @@ h1, h3 {
   width: 280px;
   border: 1px solid #aaa;
   background-color: #fff;
-  font-family: Helvetica, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
+  font-family: cursive;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   z-index: 2;

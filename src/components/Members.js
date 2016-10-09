@@ -79,7 +79,11 @@ class Members extends Component {
   };
 
   eachMember = (memberObj, index) => {
-  return (<div key={index} className="member"><img src={memberObj.dp.src} height="30" width="30"/>{memberObj.name}<Button bsStyle="danger" className="buttonRemoveMember" onClick={()=>(this.removeMember(memberObj))}>X</Button></div>) ;
+  return (<div key={index} className="member" >
+            <img className = "memberDp" src={memberObj.dp.src} height="30" width="30"/>
+            <p className ="memberName">{memberObj.name}</p>
+            <Button className="buttonRemoveMember" onClick={()=>(this.removeMember(memberObj))}>X</Button>
+          </div>) ;
   };
 
   onSuggestionSelected = (event, obj) =>{
