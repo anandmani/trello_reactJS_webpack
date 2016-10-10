@@ -92,7 +92,7 @@ var Card = React.createClass({
       else{         //Else, i.e. Name not empty
          var obj = this.props.cardDetails;
          this.setState({edit: false});
-         obj.cardName = this.refs.textInput.value;  //Change card name and retain other card values
+         obj.cardName = this.refs.textInput.value.trim();  //Change card name and retain other card values
          this.props.svCard( obj, this.props.ind);
       }
     },
@@ -112,12 +112,13 @@ var Card = React.createClass({
         if(this.refs.textInput.value.trim() == "");
         else{
           if(event.keyCode == 13) //If value is not empty, enter triggers save button
-            this.refs.cardNameSave.click();
+            // this.refs.cardNameSave.click();
+            this.saveCardName(event);
         }
     },
 
-    openModal: function() {
-           this.setState({ isModalOpen: true });
+    toggleModal: function() {
+           this.setState({ isModalOpen: !this.state.isModalOpen });
     },
 
     closeModal: function(event) { //since the modal and modal close button are inside the div (although not graphically) we have to disable click propogate
@@ -169,8 +170,8 @@ var Card = React.createClass({
       var connectDropTarget = this.props.connectDropTarget;
       var isOver = this.props.isOver;
       var val = "grey" && true;
-      var hasDesc = (this.props.cardDetails.cardDescription.trim()=="")?"none":"inline-block";
-      var hasDead = (this.props.cardDetails.cardDeadline.trim()=="")?"none":"inline-block";
+      var hasDesc = (this.props.cardDetails.cardDescription.trim()=="")?"none":"block";
+      var hasDead = (this.props.cardDetails.cardDeadline.trim()=="")?"none":"block";
       // var index = parseInt(this.props.ind);
       // var odd = parseInt(this.props.ind)%2; //index mod 2 = 1 (true) for all odd cards.
 
@@ -185,14 +186,16 @@ var Card = React.createClass({
                 border: isDragging? "none" : isOver? "solid 1px transparent":"none",
                 boxShadow: isDragging? "2px 2px 5px grey": isOver? "2px 2px 10px black" : "2px 2px 5px grey",
               }}
-              className="card" onClick={this.openModal} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
+              className="card" onClick={this.toggleModal} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
 
-                <p  className ="cardName" onClick={this.edit} >{this.props.children}</p>
-                
-                <p className ="cardTiles">
-                    <span className = "hasDesc" style={{display:hasDesc}}>     ✍     </span>
-                    <span className = "hasDead" style={{display:hasDead}}>     🕒     </span>
-                </p>
+                <div  className ="cardName" onClick={this.edit} >
+                    {this.props.children}
+                </div>
+
+                <div className ="cardTiles">
+                    <div className = "hasDesc" style={{display:hasDesc}}>     ✍     </div>
+                    <div className = "hasDead" style={{display:hasDead}}>     🕒     </div>
+                </div>
 
                 <div className ="memberTiles">
                     {this.props.cardDetails.cardMembers.map(this.eachMember)}
@@ -219,7 +222,7 @@ var Card = React.createClass({
               opacity: isDragging ? 0 : isOver? 0.5 : 1,
               border: isDragging? "none" : isOver? "solid 1px black":"none",
             }}
-            className="card" onClick={this.openModal} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
+            className="card" onClick={this.toggleModal} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
 
               <p  className ="cardName" onClick={this.edit} >{this.props.children}</p>
               <p  className ="cardTiles">

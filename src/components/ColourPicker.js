@@ -7,14 +7,13 @@ import { OverlayTrigger } from 'react-bootstrap';
 var ColourPicker = React.createClass({
 
     getInitialState: function(){
-      return({
-          isTagging: "none",
-        });
+      return({    });
     },
 
 
-    pickColour : function(){ //Flipping value of isTagging
-        this.setState({isTagging: (this.state.isTagging=="block")?"none":"block"})
+    pickColour : function(event){ //Flipping value of isTagging
+        this.stopPropagation(event);
+        this.props.toggleTagging();
     },
 
 
@@ -54,17 +53,26 @@ var ColourPicker = React.createClass({
 
     tooltip: (<Tooltip id="tooltip">Maximum 5 tags allowed!</Tooltip>),
 
+    stopPropagation: function(event){
+      if (event.stopPropagation) {
+          event.stopPropagation();   // W3C model
+      } else {
+          event.cancelBubble = true; // IE model
+      }
+
+    },
+
 
   render: function(){
     return(
-      <div className = "tags modalSegment row">
+      <div className = "tags modalSegment row" onClick={this.stopPropagation}>
           <p className="modalKey col-xs-2">Tags</p>
           <div className="modalValue col-xs-8">
               <OverlayTrigger placement="bottom" overlay={this.tooltip}>
                 <Button bsStyle="success" className = "buttonAddTag"  onClick= {this.pickColour}>+</Button>
               </OverlayTrigger>
               {this.props.tagArray.map(this.eachTag)}
-              <div className="colourPicker" style={{display:this.state.isTagging}}>
+              <div className="colourPicker" style={{display:this.props.isTagging}}>
                   <GithubPicker onChangeComplete={ this.handleChangeComplete } />
               </div>
 

@@ -80,6 +80,7 @@ var Board = React.createClass({
           {this.state.lists.map(this.eachList)}
           <Button id="newListButton" onClick={this.newList} bsStyle="primary">New List</Button>
         </div>
+        <div  id="footer"> by Anand Chinnappan Mani </div>
       </div>
     )
   }

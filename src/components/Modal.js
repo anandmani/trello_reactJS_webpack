@@ -12,7 +12,7 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var Modal = React.createClass({
 
   getInitialState: function(){
-    return {};
+    return { isTagging: "none"};
   },
 
   saveDescription: function(){
@@ -44,13 +44,31 @@ var Modal = React.createClass({
     this.props.saveModal(modal_obj);
   },
 
+  stopPropagation: function(event){
+    if (event.stopPropagation) {
+        event.stopPropagation();   // W3C model
+    } else {
+        event.cancelBubble = true; // IE model
+    }
+
+    this.closeTagging();
+  },
+
+  toggleTagging: function(){
+    this.setState({isTagging: (this.state.isTagging=="block")?"none":"block"});
+  },
+
+  closeTagging: function(){
+    this.setState({isTagging: "none"});
+  },
+
     render: function() {
         if(this.props.isOpen){
           console.log("Rendering modal");
             return (
               <ReactCSSTransitionGroup transitionName={this.props.transitionName}>
                   <div className="modal">
-                      <div className="modalContent container">
+                      <div className="modalContent container" onClick={this.stopPropagation}>
 
                           <h3>{this.props.cardDetails.cardName}</h3>
 
@@ -63,7 +81,7 @@ var Modal = React.createClass({
 
                             <Members  memberArray={this.props.cardDetails.cardMembers} saveMembers={this.saveMembers}/>
 
-                            <ColourPicker tagArray={this.props.cardDetails.cardTags} saveTags={this.saveTags}/>
+                            <ColourPicker tagArray={this.props.cardDetails.cardTags} saveTags={this.saveTags} isTagging={this.state.isTagging} toggleTagging={this.toggleTagging}/>
 
                           <div   className="modalSegment row">
                               <p className="modalKey col-xs-2">Description</p>
