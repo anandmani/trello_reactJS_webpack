@@ -146,7 +146,7 @@ var Card = React.createClass({
     eachMember: function(memberObj, index){
         var tooltip= <Tooltip id="tooltip">{memberObj.name}</Tooltip>;
         return(
-          <OverlayTrigger placement="bottom" overlay={tooltip}>
+          <OverlayTrigger key={index} placement="bottom" overlay={tooltip}>
                 <img key={index} className = "memberTile" src={memberObj.dp.src} height="30" width="30"/>
           </OverlayTrigger>
           )

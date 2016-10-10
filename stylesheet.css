@@ -475,3 +475,18 @@ h1, h3 {
 	background-color:#a3a3a3;
 border:1px solid #333333;
 }
+
+.dateInput{
+	display: inline-block;
+	float: left;
+	width: 88%;
+}
+
+.buttonClearDate{
+	 display: inline-block;
+	 float: left;
+	 width: 12%;
+}
+.buttonClearDate:hover{
+	background-color: #d9534f;
+}

@@ -62,6 +62,12 @@ var Modal = React.createClass({
     this.setState({isTagging: "none"});
   },
 
+  removeDeadline: function(){
+    var modal_obj = this.props.cardDetails;     //Copy by reference.
+    modal_obj.cardDeadline = "";
+    this.props.saveModal(modal_obj);  //This is useless
+  },
+
     render: function() {
         if(this.props.isOpen){
           console.log("Rendering modal");
@@ -75,7 +81,8 @@ var Modal = React.createClass({
                           <div  className="modalSegment row">
                               <p className="modalKey col-xs-2">Deadline </p>
                               <div className="modalValue col-xs-8">
-                                  <Datetime defaultValue={this.props.cardDetails.cardDeadline} onChange={this.saveDeadline}/>
+                                  <Datetime className="dateInput" refs="dateInput" value={this.props.cardDetails.cardDeadline} onChange={this.saveDeadline}/>
+                                  <Button className="buttonClearDate" onClick={this.removeDeadline}> X </Button>
                               </div>
                           </div>
 
