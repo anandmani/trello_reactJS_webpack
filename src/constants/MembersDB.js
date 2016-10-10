@@ -12,6 +12,6 @@ stormTrooperDP.src = "./src/images/stormTrooperDP.jpg" ;
 maleDP.src = "./src/images/icon-1.jpg" ;
 femaleDP.src = "./src/images/icon-2.jpg" ;
 
-var allMembers = [{name:"Anand Mani", dp:maleDP},{name:"Aarti", dp:femaleDP} ,{name:"Deepak", dp:kakashiDP} , {name:"Anand Krishnan", dp:stormTrooperDP},{name: "Karthik", dp:gitDP},{name: "Karthik1", dp:jokerDP},{name: "Karthik2", dp:jokerDP},{name: "Karthik3", dp:jokerDP}]
+var allMembers = [{name:"Anand Mani", dp:maleDP},{name:"Aarti", dp:femaleDP} ,{name:"Deepak", dp:kakashiDP} , {name:"Anand Krishnan", dp:stormTrooperDP},{name: "Karthik", dp:gitDP},{name: "Monish", dp:gitDP},{name: "Amma", dp:jokerDP},{name: "Nisha", dp:jokerDP}]
 
 export default allMembers;

@@ -5,6 +5,8 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { Button } from 'react-bootstrap';
 import List from "./List";
 
+import allMembers from '../constants/MembersDB';
+
 var moment = require('moment');
 var Board = React.createClass({
   getInitialState: function(){
@@ -12,19 +14,23 @@ var Board = React.createClass({
       lists:
       [
         {//list-1
-          listName:"Monday",
+          listName:"Give the list a name",
           cards: [
-            {cardName:'Go to the Gym',    cardDescription:'Chest workout',                                      cardDeadline: '09/25/2016 12:00 AM',  cardTags:["#004dcf"],   cardMembers:[]},  //list-1 card-1
-            {cardName:'Take Medicine',    cardDescription:'1 Keraglo after breakfast,\n 1 D-Rise after lunch',  cardDeadline: '09/26/2016 12:00 AM',  cardTags:[],            cardMembers:[]},
-            {cardName:'Read the news',    cardDescription:'Skip all the kachada news',                          cardDeadline: '09/40/2016 12:00 AM',  cardTags:["#004dcf"],   cardMembers:[]},
+            {cardName:'Click the card name ',           cardDescription:'',                                              cardDeadline: '',                     cardTags:[],                                 cardMembers:[]},  //list-1 card-1
+            {cardName:'Click the card to see details',  cardDescription:'',                                              cardDeadline: '',                     cardTags:[],                                 cardMembers:[]},
+            {cardName:'Give the card a description',    cardDescription:'Enter your description here',                   cardDeadline: '',                     cardTags:[],                                 cardMembers:[]},
+            {cardName:'Give the card a deadline',       cardDescription:'Go ahead and change the deadline',              cardDeadline: '09/26/2016 12:00 AM',  cardTags:[],                                 cardMembers:[]},
+            {cardName:'Tag your card with colours!',    cardDescription:'Click on the thumbnail to remove the colour',   cardDeadline: '09/26/2016 12:00 AM',  cardTags:["#bedadc","#fad0c3", "#d4c4fb"],   cardMembers:[]},
+            {cardName:'Add members to your card',       cardDescription:'Add Aarti and Deepak as members',               cardDeadline: '09/26/2016 12:00 AM',  cardTags:[],                                 cardMembers:[allMembers[0]]},
+            {cardName:'Drag and drop your card!',       cardDescription:'',                                              cardDeadline: '09/26/2016 12:00 AM',  cardTags:[],                                 cardMembers:[]},
           ]
         },
         {//list-2
-          listName:"Tuesday",
+          listName:"Monday",
           cards: [
-            {cardName:'Hit the Gym',    cardDescription:'Shoulder workout',           cardDeadline: '09/25/2016 12:00 AM',  cardTags:["#004dcf"],           cardMembers:[]},  //list-2 card-1
-            {cardName:'Take Medicine',  cardDescription:'1 Keraglo after breakfast',  cardDeadline: '09/26/2016 12:00 AM',  cardTags:["#5300eb","#004dcf"], cardMembers:[]},
-            {cardName:'Play the flute', cardDescription:'Tube it!',                   cardDeadline: '09/40/2016 12:00 AM',  cardTags:[],                    cardMembers:[]},
+            {cardName:'Go to the gym',              cardDescription:'Biceps Day \n3x15 Incline Hammer Curls \n3x15 Incline Inner-Biceps Curl \n3x15 Dumbbell Biceps Curl ',           cardDeadline: '10/10/2016 07:00 AM',  cardTags:["#bedadc", "#d4c4fb"],           cardMembers:[allMembers[0]]},  //list-2 card-1
+            {cardName:'Clear the job interview',    cardDescription:'All the best, small son',                                                                                        cardDeadline: '10/10/2016 11:00 AM',  cardTags:["#fad0c3"],                      cardMembers:[allMembers[0]]},
+            {cardName:'Take family out for dinner', cardDescription:'Reservation at The Big Chill, Khan Market',                                                                      cardDeadline: '10/10/2016 08:00 PM',  cardTags:["#fad0c3"],                      cardMembers:[allMembers[0],allMembers[5],allMembers[6]]},
           ]
         }
       ],
