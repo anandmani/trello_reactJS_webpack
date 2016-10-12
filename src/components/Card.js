@@ -214,7 +214,7 @@ var Card = React.createClass({
           </div>
       ));
     }
-    //If Modal is not open, disable Drag-Drop
+    //If Modal is open, disable Drag-Drop
     else{
       return (
         <div
