@@ -184,6 +184,8 @@ var Card = React.createClass({
               style={{
                 opacity: isDragging ? 0 : isOver? 0.5 : 1,
                 border: isDragging? "none" : isOver? "solid 1px transparent":"none",
+                minHeight: isDragging? "60px" : isOver? "62px":"60px",          //increasing height and width to support border and prevent contained elements from getting displaced
+                minWidth: isDragging? "258px" : isOver? "260px":"258px",
                 boxShadow: isDragging? "2px 2px 5px grey": isOver? "2px 2px 10px black" : "2px 2px 5px grey",
               }}
               className="card" onClick={this.toggleModal} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
