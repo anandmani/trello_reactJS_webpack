@@ -82,11 +82,16 @@ button {
 	margin-left: 10px;
 
 	max-height: 95%;
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 	box-shadow: 2px 2px 5px grey;
 }
 .listName{
+	margin-left: 36px;
+	margin-right:36px;
 	align-self: center;
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }
 .listNameInput{
 	outline: none;
