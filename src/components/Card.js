@@ -200,7 +200,7 @@ var Card = React.createClass({
                 </div>
 
                 <div className ="memberTiles">
-                    {this.props.cardDetails.cardMembers.map(this.eachMember)}
+                    {this.props.cardDetails.cardMembers.map(this.eachMember)}     //map returns an array of member tiles [memTile2, memTile2], it is surreounded by {}, thus their va;ue gets output. If it wasnt surrounded by {}, then [memTile1, memTile2] would be output as such
                 </div>
 
                 <div className ="tagTiles">
