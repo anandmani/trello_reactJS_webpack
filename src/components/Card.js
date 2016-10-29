@@ -200,7 +200,7 @@ var Card = React.createClass({
                 </div>
 
                 <div className ="memberTiles">
-                    {this.props.cardDetails.cardMembers.map(this.eachMember)}     //map returns an array of member tiles [memTile2, memTile2], it is surreounded by {}, thus their va;ue gets output. If it wasnt surrounded by {}, then [memTile1, memTile2] would be output as such
+                    {this.props.cardDetails.cardMembers.map(this.eachMember)}
                 </div>
 
                 <div className ="tagTiles">
@@ -214,7 +214,7 @@ var Card = React.createClass({
                 <Button  bsStyle="warning" className="buttonRemoveCard" onClick={this.remove}>X</Button>
 
           </div>
-      ));
+      ));//map returns an array of member tiles [memTile2, memTile2], it is surreounded by {}, thus their value gets output. If it wasnt surrounded by {}, then [memTile1, memTile2] would be output as such
     }
     //If Modal is open, disable Drag-Drop
     else{
