@@ -6,7 +6,7 @@
     <title>React - Template</title>
 
     <!-- <script src="../../../react-datetime-master/DateTime.js"></script> -->
-    <link type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+  
     <link type="text/css" href="stylesheet.css" rel="stylesheet"/>
 
     <link type="text/css" href="timepicker_stylesheet.css" rel="stylesheet"/>
@@ -20,3 +20,9 @@
 <!-- when we type webpack-dev-server the bundle.js file is created in the main directory itself. It can be accessed by ./bundle.js from here. -->
 <!-- when we type webpack, the files get bundled and the bundle.js is created in the output path which is public folder which can be accesses by ./public/bundle.js from here-->
 <!-- When we are serving the bundle file from ./public/bundle, we need to remember to type webpack everytime, so that the updates in bundled files get reflected -->
+
+<!-- webpack will analyze your entry file for dependencies to other files. These files (called modules) are included in your bundle.js too. -->
+<!-- webpack will give each module a unique id and save all modules accessible by id in the bundle.js file. Only the entry module is executed on startup.-->
+<!-- A small runtime provides the require function and executes the dependencies when required.-->
+
+<!-- Thus, node modules gets bundled?? and we cant serve bootstrap.css with link from html??  We need to require it in our js, since they are also bundled -->
