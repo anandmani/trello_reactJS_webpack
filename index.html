@@ -6,6 +6,7 @@
     <title>React - Template</title>
 
     <!-- <script src="../../../react-datetime-master/DateTime.js"></script> -->
+    <link type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <link type="text/css" href="stylesheet.css" rel="stylesheet"/>
 
     <link type="text/css" href="timepicker_stylesheet.css" rel="stylesheet"/>
@@ -15,3 +16,7 @@
 	<script src="./public/bundle.js"></script>
 </body>
 </html>
+
+<!-- when we type webpack-dev-server the bundle.js file is created in the main directory itself. It can be accessed by ./bundle.js from here. -->
+<!-- when we type webpack, the files get bundled and the bundle.js is created in the output path which is public folder which can be accesses by ./public/bundle.js from here-->
+<!-- When we are serving the bundle file from ./public/bundle, we need to remember to type webpack everytime, so that the updates in bundled files get reflected -->
